@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gardener South East London | Service Locations | Urban Bloom Gardening</title>
+  <meta name="description" content="Professional gardening services across SE London - Dulwich, Peckham, Brockley, Greenwich, Crystal Palace, Bromley and more. Book online instantly from £125.">
+  <link rel="canonical" href="https://www.urbanbloomgardening.co.uk/locations" />
+
+  <meta property="og:title" content="Gardener South East London | Service Locations | Urban Bloom Gardening" />
+  <meta property="og:description" content="Professional gardening services across SE London - Dulwich, Peckham, Brockley, Greenwich, Crystal Palace, Bromley and more. Book online instantly from £125." />
+  <meta property="og:url" content="https://www.urbanbloomgardening.co.uk/locations" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Urban Bloom Gardening" />
+  <meta property="og:image" content="https://www.urbanbloomgardening.co.uk/images/og-default.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gardener South East London | Service Locations | Urban Bloom Gardening" />
+  <meta name="twitter:description" content="Professional gardening services across SE London - Dulwich, Peckham, Brockley, Greenwich, Crystal Palace, Bromley and more. Book online instantly from £125." />
+  <meta name="twitter:image" content="https://www.urbanbloomgardening.co.uk/images/og-default.jpg" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-green-dark: #1a3c2a;
+      --color-green-mid: #2d5a3f;
+      --color-green-light: #4a7c5c;
+      --color-green-pale: #e8f0eb;
+      --color-cream: #faf8f5;
+      --color-white: #ffffff;
+      --color-text: #2a2a2a;
+      --color-text-light: #555555;
+      --color-text-muted: #777777;
+      --color-border: rgba(0, 0, 0, 0.12);
+      --color-border-card: hsla(0, 0%, 16%, 1);
+      --font-heading: Georgia, 'Times New Roman', serif;
+      --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --max-width: 1400px;
+      --page-padding: 4vw;
+      --section-padding: 80px;
+      --card-radius: 20px;
+      --button-radius: 40px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--page-padding);
+    }
+
+    /* ========== ANNOUNCEMENT BAR ========== */
+    .announcement-bar {
+      background: var(--color-green-dark);
+      color: var(--color-white);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-family: var(--font-body);
+      letter-spacing: 0.02em;
+    }
+    .announcement-bar a {
+      color: var(--color-white);
+      text-decoration: underline;
+    }
+
+    /* ========== HEADER / NAV ========== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 var(--page-padding);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--color-green-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links li { position: relative; }
+
+    .nav-links a {
+      font-size: 15px;
+      color: var(--color-text);
+      transition: color 0.2s;
+      padding: 8px 0;
+      display: block;
+    }
+
+    .nav-links a:hover { color: var(--color-green-mid); }
+
+    /* Dropdown */
+    .dropdown-trigger { cursor: pointer; }
+    .dropdown-trigger::after {
+      content: ' ▾';
+      font-size: 10px;
+      opacity: 0.5;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: -16px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 8px 0;
+      min-width: 220px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    .dropdown-menu a {
+      padding: 10px 20px;
+      font-size: 14px;
+      display: block;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--color-green-pale);
+    }
+
+    .nav-links li:hover .dropdown-menu { display: block; }
+
+    /* CTA Button in nav */
+    .nav-cta {
+      background: var(--color-green-dark);
+      color: var(--color-white) !important;
+      padding: 10px 24px !important;
+      border-radius: var(--button-radius);
+      font-size: 14px !important;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--color-green-mid) !important;
+      color: var(--color-white) !important;
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: var(--color-white);
+      padding: 60px var(--page-padding);
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 300;
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+
+    .hero .description {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: var(--button-radius);
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--color-green-dark);
+      color: var(--color-white);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-green-mid);
+      transform: translateY(-1px);
+    }
+
+    .btn-white {
+      background: var(--color-white);
+      color: var(--color-green-dark);
+    }
+
+    .btn-white:hover {
+      background: var(--color-green-pale);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-green-dark);
+      border: 1.5px solid var(--color-green-dark);
+    }
+
+    .btn-outline:hover {
+      background: var(--color-green-dark);
+      color: var(--color-white);
+    }
+
+    /* ========== SECTION STYLES ========== */
+    .section {
+      padding: var(--section-padding) 0;
+    }
+
+    .section-alt {
+      background: var(--color-cream);
+    }
+
+    .section-green {
+      background: var(--color-green-dark);
+      color: var(--color-white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--color-green-dark);
+    }
+
+    .section-green .section-header h2 {
+      color: var(--color-white);
+    }
+
+    .section-header p {
+      font-size: 17px;
+      color: var(--color-text-light);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .section-green .section-header p {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .section-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    /* ========== BOOKING BANNER ========== */
+    .booking-banner {
+      position: relative;
+      padding: 80px 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .booking-banner .hero-bg::after {
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .booking-banner-content {
+      position: relative;
+      z-index: 1;
+      color: var(--color-white);
+    }
+
+    .booking-banner h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .booking-benefits {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 32px;
+      margin-bottom: 32px;
+      font-size: 16px;
+    }
+
+    .booking-benefits li::before {
+      content: '✓ ';
+      color: #8fdb8f;
+      font-weight: 700;
+    }
+
+    /* ========== BOROUGH & LOCATION CARDS ========== */
+    .borough-section {
+      margin-bottom: 48px;
+    }
+
+    .borough-section h3 {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--color-green-dark);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .location-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .location-card {
+      border: 1px solid var(--color-border-card);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      background: var(--color-white);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .location-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .location-card h4 {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-green-dark);
+      margin-bottom: 8px;
+    }
+
+    .location-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      margin-bottom: 12px;
+    }
+
+    .location-card .card-link {
+      font-size: 14px;
+      color: var(--color-green-mid);
+      font-weight: 500;
+    }
+
+    .location-card .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .location-card .card-link::after {
+      content: ' →';
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--color-green-dark);
+      color: var(--color-white);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand a { opacity: 0.8; }
+    .footer-brand a:hover { opacity: 1; text-decoration: underline; }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      opacity: 0.8;
+      transition: opacity 0.2s, background 0.2s;
+    }
+
+    .footer-social a:hover {
+      opacity: 1;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
+      font-size: 14px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    /* ========== MOBILE RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        padding: 20px var(--page-padding);
+        border-bottom: 1px solid var(--color-border);
+        gap: 4px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active li { width: 100%; }
+      .nav-links.active a { padding: 12px 0; }
+      .nav-links.active .nav-cta {
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: 16px;
+        display: none;
+      }
+
+      .nav-links.active .dropdown-menu { display: block; }
+
+      .hero { min-height: 70vh; }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      :root {
+        --section-padding: 56px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .booking-benefits {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    We're Hiring! Please <a href="/contact">get in touch</a> to apply.
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span>Urban Bloom Gardening</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li>
+          <a href="/services" class="dropdown-trigger">Services</a>
+          <div class="dropdown-menu">
+            <a href="/services">All Services</a>
+            <a href="/services/garden-maintenance">Garden Maintenance</a>
+            <a href="/services/garden-clearance">Garden Clearance</a>
+            <a href="/services/planting-plans">Planting Plans &amp; Design</a>
+            <a href="/services/wildlife-garden">Wildlife Garden Design</a>
+            <a href="/services/lawn-care">Lawn Care &amp; Restoration</a>
+            <a href="/services/hedge-trimming">Hedge Trimming</a>
+            <a href="/services/soil-improvement">Soil Improvement &amp; Mulching</a>
+            <a href="/services/plant-propagation">Plant Propagation &amp; Care</a>
+          </div>
+        </li>
+        <li>
+          <a href="/locations" class="dropdown-trigger">Locations</a>
+          <div class="dropdown-menu">
+            <a href="/locations">All Locations</a>
+            <a href="/locations/dulwich">Dulwich</a>
+            <a href="/locations/brockley-gardener">Brockley</a>
+            <a href="/locations/peckham-gardener">Peckham</a>
+            <a href="/locations/crystal-palace-gardener">Crystal Palace</a>
+            <a href="/locations/greenwich-gardener">Greenwich</a>
+            <a href="/locations/bromley-gardener">Bromley</a>
+          </div>
+        </li>
+        <li><a href="/booking">Booking</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/booking" class="nav-cta">Book now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: url('/images/hero-locations.jpg');"></div>
+    <div class="hero-content">
+      <h1>Service Locations</h1>
+      <p class="subtitle">Local Professional Gardening Services Across SE London</p>
+      <p class="description">Book your gardener online 24/7 with instant confirmation. Professional 3 hour garden sessions from £125. Add extra hours on the day - no hassle.</p>
+      <a href="/booking" class="btn btn-white">Book now</a>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p>Urban Bloom Gardening provides expert gardening services throughout South East London. Our locally based gardening team ensures prompt, professional service, covering all major residential areas with eco friendly garden care solutions. Book online instantly with transparent pricing, and ability to add extra hours on the day. Book with confidence knowing your gardener will take care of everything.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Listings by Borough -->
+  <section class="section section-alt">
+    <div class="container">
+
+      <!-- Southwark -->
+      <div class="borough-section">
+        <h3>Southwark</h3>
+        <div class="location-cards">
+          <div class="location-card">
+            <h4>Dulwich Gardener (SE21)</h4>
+            <p>Expert garden maintenance for Dulwich Village and surrounding Victorian properties with wildlife-friendly practices.</p>
+            <a href="/locations/dulwich" class="card-link">View Dulwich services</a>
+          </div>
+          <div class="location-card">
+            <h4>Peckham Gardener (SE15)</h4>
+            <p>Creative garden care throughout Peckham specialising in urban transformations and sustainable maintenance.</p>
+            <a href="/locations/peckham-gardener" class="card-link">View Peckham services</a>
+          </div>
+          <div class="location-card">
+            <h4>Nunhead Gardener (SE15)</h4>
+            <p>Wildlife-friendly garden care near Nunhead Cemetery specialising in Victorian terraces and green corridors.</p>
+            <a href="/locations/nunhead-gardener" class="card-link">View Nunhead services</a>
+          </div>
+          <div class="location-card">
+            <h4>Camberwell Gardener (SE5)</h4>
+            <p>Professional care for Camberwell's Georgian gardens and creative contemporary outdoor spaces.</p>
+            <a href="/locations/camberwell-gardener" class="card-link">View Camberwell services</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lewisham -->
+      <div class="borough-section">
+        <h3>Lewisham</h3>
+        <div class="location-cards">
+          <div class="location-card">
+            <h4>Brockley Gardener (SE4)</h4>
+            <p>Reliable maintenance for Brockley Conservation Area specialising in clay soil and wildlife corridors.</p>
+            <a href="/locations/brockley-gardener" class="card-link">View Brockley services</a>
+          </div>
+          <div class="location-card">
+            <h4>Forest Hill Gardener (SE23)</h4>
+            <p>Specialist care for Forest Hill gardens near Horniman Museum with expertise in seasonal planting and borders.</p>
+            <a href="/locations/forest-hill-gardener" class="card-link">View Forest Hill services</a>
+          </div>
+          <div class="location-card">
+            <h4>Sydenham Gardener (SE26)</h4>
+            <p>Expert maintenance across Sydenham specialising in woodland-edge gardens and natural habitat creation.</p>
+            <a href="/locations/sydenham-gardener" class="card-link">View Sydenham services</a>
+          </div>
+          <div class="location-card">
+            <h4>Honor Oak Gardener (SE23)</h4>
+            <p>Specialist maintenance for Honor Oak gardens with expertise in established borders and seasonal planting.</p>
+            <a href="/locations/honor-oak-gardener" class="card-link">View Honor Oak services</a>
+          </div>
+          <div class="location-card">
+            <h4>Catford Gardener (SE6)</h4>
+            <p>Comprehensive maintenance across Catford specialising in clay soil management and regeneration gardens.</p>
+            <a href="/locations/catford-gardener" class="card-link">View Catford services</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Greenwich -->
+      <div class="borough-section">
+        <h3>Greenwich</h3>
+        <div class="location-cards">
+          <div class="location-card">
+            <h4>Greenwich Gardener (SE10)</h4>
+            <p>Professional gardening across Maritime Greenwich with expertise in heritage gardens and riverside planting.</p>
+            <a href="/locations/greenwich-gardener" class="card-link">View Greenwich services</a>
+          </div>
+          <div class="location-card">
+            <h4>Blackheath Gardener (SE3)</h4>
+            <p>Beautiful services for Blackheath's period properties with conservation area expertise and formal designs.</p>
+            <a href="/locations/blackheath-gardener" class="card-link">View Blackheath services</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bromley -->
+      <div class="borough-section">
+        <h3>Bromley</h3>
+        <div class="location-cards">
+          <div class="location-card">
+            <h4>Bromley Gardener (BR1/BR2)</h4>
+            <p>Comprehensive garden services for Bromley's substantial properties and traditional suburban landscapes.</p>
+            <a href="/locations/bromley-gardener" class="card-link">View Bromley services</a>
+          </div>
+          <div class="location-card">
+            <h4>Beckenham Gardener (BR3)</h4>
+            <p>Premium services for Beckenham's larger gardens with lawn restoration and established border care.</p>
+            <a href="/locations/beckenham-gardener" class="card-link">View Beckenham services</a>
+          </div>
+          <div class="location-card">
+            <h4>Crystal Palace Gardener (SE19)</h4>
+            <p>Expert care for Crystal Palace gardens with Victorian features and heritage planting schemes.</p>
+            <a href="/locations/crystal-palace-gardener" class="card-link">View Crystal Palace services</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lambeth -->
+      <div class="borough-section">
+        <h3>Lambeth</h3>
+        <div class="location-cards">
+          <div class="location-card">
+            <h4>Herne Hill Gardener (SE24)</h4>
+            <p>Creative urban garden maintenance specialising in small spaces, roof terraces, and communal gardens.</p>
+            <a href="/locations/herne-hill-gardener" class="card-link">View Herne Hill services</a>
+          </div>
+          <div class="location-card">
+            <h4>Brixton Gardener (SW2/SW9)</h4>
+            <p>Creative urban garden maintenance specialising in small spaces, roof terraces, and communal gardens.</p>
+            <a href="/locations/brixton-gardener" class="card-link">View Brixton services</a>
+          </div>
+          <div class="location-card">
+            <h4>Norwood Gardener (SE25/SE27)</h4>
+            <p>Professional maintenance across all Norwood areas from Crystal Palace heights to valley gardens.</p>
+            <a href="/locations/norwood-gardener" class="card-link">View Norwood services</a>
+          </div>
+          <div class="location-card">
+            <h4>Streatham Gardener (SW16)</h4>
+            <p>Family garden care from Streatham Hill to Common with pollution tolerant and child friendly planting.</p>
+            <a href="/locations/streatham-gardener" class="card-link">View Streatham services</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Booking CTA Banner -->
+  <section class="booking-banner">
+    <div class="hero-bg" style="background-image: url('/images/hero-booking.jpg');"></div>
+    <div class="booking-banner-content container">
+      <h2>Book a Gardener in South East London Today</h2>
+      <ul class="booking-benefits">
+        <li>Instant online booking - no waiting for quotes</li>
+        <li>See real time availability</li>
+        <li>Fixed, transparent pricing from £125</li>
+        <li>Book in 60 seconds</li>
+      </ul>
+      <a href="/booking" class="btn btn-white">Book now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Urban Bloom Gardening</h3>
+          <p><a href="https://wa.me/4407835212838">07835 212 838</a></p>
+          <p><a href="mailto:hello@urbanbloomgardening.co.uk">hello@urbanbloomgardening.co.uk</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/urbanbloomgardening" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/urbanbloomgardening" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/garden-maintenance">Garden Maintenance</a></li>
+            <li><a href="/services/garden-clearance">Garden Clearance</a></li>
+            <li><a href="/services/wildlife-garden">Wildlife Gardens</a></li>
+            <li><a href="/services/planting-plans">Planting Design</a></li>
+            <li><a href="/services">All Services →</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Locations</h4>
+          <ul>
+            <li><a href="/locations/dulwich">Dulwich</a></li>
+            <li><a href="/locations/peckham-gardener">Peckham</a></li>
+            <li><a href="/locations/brockley-gardener">Brockley</a></li>
+            <li><a href="/locations/greenwich-gardener">Greenwich</a></li>
+            <li><a href="/locations">All Locations →</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/booking">Book Online</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Urban Bloom Gardening. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
