@@ -151,8 +151,6 @@
     .btn { display: inline-block; padding: 0 32px; height: 57px; line-height: 57px; border-radius: var(--button-radius); font-size: 16px; font-weight: 600; text-align: center; transition: all 0.25s; cursor: pointer; border: none; letter-spacing: 0.08em; text-transform: uppercase; }
     .btn-green { background: var(--color-green-btn); color: #fff; }
     .btn-green:hover { background: #4a9069; transform: translateY(-1px); }
-    .btn-dark { background: var(--color-text); color: #fff; }
-    .btn-dark:hover { background: #333; transform: translateY(-1px); }
     .btn-outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
     .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
 
@@ -168,7 +166,7 @@
     .hero .hero-text-lines { margin-bottom: 32px; }
 
     /* ===== INTRO SECTION (512px on live, white bg) ===== */
-    .intro-section { padding: 30px 0; background: var(--color-white); text-align: center; }
+    .intro-section { padding: 56px 0 30px; background: var(--color-white); text-align: center; }
     .intro-section .container { max-width: 900px; }
     .intro-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: var(--color-text); margin-bottom: 28px; line-height: 1.11; }
     .intro-section p { font-size: 22.9px; line-height: 1.5; color: #000; text-align: justify; margin-bottom: 16px; }
@@ -180,13 +178,13 @@
     .whats-included-section .section-bg::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.64); }
     .whats-included-section .container { position: relative; z-index: 1; }
     .whats-included-section .section-header { text-align: center; margin-bottom: 24px; }
-    .whats-included-section .section-header h2 { font-family: var(--font-heading); font-size: 107.3px; font-weight: 500; color: var(--color-text); line-height: 1; margin-bottom: 16px; }
+    .whats-included-section .section-header h2 { font-family: var(--font-heading); font-size: 72px; font-weight: 500; color: var(--color-text); line-height: 1; margin-bottom: 16px; }
     .whats-included-section .pricing-note { font-size: 22.9px; line-height: 1.5; color: #000; text-align: justify; max-width: 900px; margin: 0 auto 48px; }
     .included-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 150px 24px; }
     .included-card { border: 1px solid var(--color-border-card); border-radius: 16px; padding: 32px 16px; background: rgba(255,255,255,0.55); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); text-align: center; min-height: 280px; }
     .included-card h3 { font-family: var(--font-heading); font-size: 36.7px; font-weight: 500; margin-bottom: 12px; color: var(--color-text); line-height: 1.14; }
     .included-card p { font-size: 22.9px; line-height: 1.5; color: #000; text-align: center; }
-    .whats-included-section .section-cta { text-align: center; margin-top: 48px; }
+    .whats-included-section .section-cta { text-align: center; margin-top: 72px; }
 
     /* ===== BOOK A GARDENER (512px on live, cream bg) ===== */
     .book-gardener-section { padding: 57px 0 56px; background: var(--color-cream); text-align: center; }
@@ -472,7 +470,7 @@
       </div>
 
       <div class="section-cta">
-        <a href="/booking" class="btn btn-dark">Book Now</a>
+        <a href="/booking" class="btn btn-green">Book Now</a>
       </div>
     </div>
   </section>
@@ -538,7 +536,7 @@
         </div>
       </div>
       <div class="section-cta">
-        <a href="/booking" class="btn btn-dark">Book Now</a>
+        <a href="/booking" class="btn btn-green">Book Now</a>
       </div>
     </div>
   </section>
@@ -563,7 +561,7 @@
       <p>Our team of experienced gardeners brings passion and expertise to every garden we maintain. With comprehensive horticultural knowledge and a commitment to sustainable practices, we deliver professional garden maintenance that exceeds expectations.</p>
       <p>From small urban gardens to larger suburban spaces, we tailor our gardening services to your specific needs. Whether you&rsquo;re looking for regular maintenance or seasonal support, our flexible approach ensures your garden receives exactly the care it needs to flourish.</p>
       <div class="section-cta">
-        <a href="/booking" class="btn btn-dark">Book Now</a>
+        <a href="/booking" class="btn btn-green">Book Now</a>
       </div>
     </div>
   </section>
@@ -717,7 +715,7 @@
         </div>
       </div>
       <div class="section-cta">
-        <a href="/booking" class="btn btn-dark">Book Now</a>
+        <a href="/booking" class="btn btn-green">Book Now</a>
       </div>
     </div>
   </section>
@@ -748,7 +746,7 @@
         <a href="/locations/beckenham-gardener" class="location-pill">Beckenham</a>
       </div>
       <div class="section-cta">
-        <a href="/booking" class="btn btn-dark">Book Now</a>
+        <a href="/booking" class="btn btn-green">Book Now</a>
       </div>
     </div>
   </section>
@@ -825,8 +823,7 @@
   </footer>
 
   <script>
-    // FAQ accordion - first item open by default
-    document.querySelector('.faq-item').classList.add('active');
+    // FAQ accordion - all items closed by default
   </script>
 
 </body>
