@@ -160,11 +160,11 @@
     .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
 
     /* ===== HERO ===== */
-    .hero { position: relative; height: 855px; display: flex; align-items: flex-end; justify-content: center; text-align: center; overflow: hidden; margin-top: -73px; padding-top: 73px; padding-bottom: 47px; }
+    .hero { position: relative; height: 855px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; margin-top: -73px; padding-top: 73px; }
     .hero-bg { position: absolute; inset: 0; z-index: 0; }
     .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
     .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.15); }
-    .hero-content { position: relative; z-index: 1; color: #fff; padding: 20px var(--page-padding); max-width: 900px; }
+    .hero-content { position: relative; z-index: 1; color: #fff; padding: 20px var(--page-padding); max-width: 1214px; margin-top: 96px; }
     .hero h1 { font-family: var(--font-heading); font-size: 67.84px; font-weight: 500; line-height: 1.15; margin-bottom: 14px; }
     .hero .subtitle { font-size: clamp(18px, 2.4vw, 26px); font-weight: 500; margin-bottom: 24px; opacity: 0.95; }
     .hero .hero-text-line { font-size: 16px; line-height: 1.9; opacity: 0.9; }
@@ -197,7 +197,7 @@
     .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 152px 11px; }
     .service-card { border: 1px solid var(--color-border-card); border-radius: 16px; padding: 32px 10px 10px; min-height: 384px; background: rgba(255,255,255,0.55); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); text-align: center; transition: transform 0.25s; display: flex; flex-direction: column; }
     .service-card:hover { transform: translateY(-3px); }
-    .service-card h3 { font-family: var(--font-heading); font-size: 36.7px; font-weight: 400; margin-bottom: 12px; color: var(--color-text); text-decoration: underline; text-underline-offset: 4px; line-height: 1.14; }
+    .service-card h3 { font-family: var(--font-heading); font-size: 28px; font-weight: 400; margin-bottom: 12px; color: var(--color-text); text-decoration: underline; text-underline-offset: 4px; line-height: 1.2; }
     .service-card p { font-size: 16px; line-height: 1.5; color: var(--color-text-light); margin: 12px 0 16px; text-align: center; flex: 1; }
     .service-card .card-link { font-size: 16px; color: var(--color-text); font-weight: 500; text-decoration: underline; }
     .section-cta { text-align: center; margin-top: 40px; }
@@ -206,13 +206,13 @@
     .locations-section .btn { height: 68px; line-height: 68px; padding: 0 38px; }
 
     /* ===== PRICING (full-width dark bg) ===== */
-    .pricing-section { background: var(--color-green-dark); padding: 59px 0 57px; color: #fff; text-align: center; }
-    .pricing-section .container { max-width: 900px; }
+    .pricing-section { background: var(--color-green-dark); padding: 59px 0 57px; color: #fff; text-align: center; min-height: 655px; }
+    .pricing-section .container { max-width: 1104px; padding: 0 20px; }
     .pricing-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: #fff; margin-bottom: 12px; text-align: center; }
-    .pricing-section .pricing-subtitle { font-size: 22px; color: rgba(255,255,255,0.8); margin-bottom: 28px; font-weight: 400; text-align: center; }
-    .pricing-section .pricing-body { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 28px; text-align: center; }
+    .pricing-section .pricing-subtitle { font-size: 22px; color: rgba(255,255,255,0.8); margin-bottom: 28px; font-weight: 400; text-align: center; max-width: 694px; margin-left: auto; margin-right: auto; }
+    .pricing-section .pricing-body { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 28px; text-align: justify; max-width: 694px; margin-left: auto; margin-right: auto; }
     .pricing-section .pricing-why-heading { font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; text-align: center; }
-    .pricing-section .pricing-why-body { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 60px; text-align: center; }
+    .pricing-section .pricing-why-body { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 44px; text-align: justify; max-width: 694px; margin-left: auto; margin-right: auto; }
     .pricing-section .section-cta { text-align: center; }
 
     /* ===== WHY CHOOSE US (bg image section) ===== */
@@ -221,11 +221,11 @@
     .why-section .why-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(1.25) saturate(0.8); }
     .why-section .why-bg::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.25); }
     .why-section .container { position: relative; z-index: 1; }
-    .why-section .section-header { text-align: center; margin-bottom: 114px; }
-    .why-section .section-header h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: var(--color-text); line-height: 1.2; }
+    .why-section .section-header { text-align: center; margin-bottom: 66px; }
+    .why-section .section-header h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: var(--color-text); line-height: 1.12; max-width: 773px; margin: 0 auto; }
     .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 57px 24px; }
     .feature-card { border: 1px solid var(--color-border-card); border-radius: 16px; padding: 22px 12px; min-height: 256px; background: rgba(255,255,255,0.55); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); text-align: center; }
-    .feature-card h3 { font-family: var(--font-heading); font-size: 36.7px; font-weight: 400; margin-bottom: 12px; color: var(--color-text); line-height: 1.14; }
+    .feature-card h3 { font-family: var(--font-heading); font-size: 28px; font-weight: 400; margin-bottom: 12px; color: var(--color-text); line-height: 1.2; }
     .feature-card p { font-size: 16px; line-height: 1.5; color: var(--color-text-light); text-align: center; }
 
     /* ===== LOCATIONS (full-width centered) ===== */
@@ -253,7 +253,7 @@
     .cta-section .cta-bg img { width: 100%; height: 100%; object-fit: cover; }
     .cta-section .cta-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.3); }
     .cta-section .container { position: relative; z-index: 1; color: #fff; }
-    .cta-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: #fff; margin-bottom: 28px; }
+    .cta-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: #fff; margin-bottom: 28px; max-width: 1214px; margin-left: auto; margin-right: auto; }
     .cta-items { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-bottom: 99px; font-size: 22px; }
     .cta-items a { color: #fff; text-decoration: underline; }
     .cta-buttons { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
