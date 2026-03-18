@@ -489,45 +489,104 @@
       content: ' →';
     }
 
-    /* ========== BOOKING BANNER ========== */
-    .booking-banner {
-      position: relative;
-      padding: 80px 0;
-      text-align: center;
-      overflow: hidden;
+    /* ========== SPLIT SECTION (60/40 text/image) ========== */
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 500px;
     }
 
-    .booking-banner .hero-bg::after {
-      background: rgba(0, 0, 0, 0.45);
+    .split-section.reverse {
+      direction: rtl;
     }
 
-    .booking-banner-content {
-      position: relative;
-      z-index: 1;
-      color: var(--color-white);
+    .split-section.reverse > * {
+      direction: ltr;
     }
 
-    .booking-banner h2 {
+    .split-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px var(--page-padding) 60px calc(var(--page-padding) + 40px);
+    }
+
+    .split-section.reverse .split-text {
+      padding: 60px calc(var(--page-padding) + 40px) 60px var(--page-padding);
+    }
+
+    .split-text h2 {
       font-family: var(--font-heading);
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 400;
+      color: var(--color-green-dark);
+      margin-bottom: 20px;
+    }
+
+    .split-text p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--color-text-light);
+      margin-bottom: 16px;
+    }
+
+    .split-text .booking-list {
+      list-style: none;
       margin-bottom: 24px;
     }
 
-    .booking-benefits {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 32px;
-      margin-bottom: 32px;
+    .split-text .booking-list li {
       font-size: 16px;
+      line-height: 1.8;
+      color: var(--color-text-light);
     }
 
-    .booking-benefits li::before {
+    .split-text .booking-list li::before {
       content: '✓ ';
-      color: #8fdb8f;
+      color: var(--color-green-mid);
       font-weight: 700;
+    }
+
+    .split-image {
+      background-size: cover;
+      background-position: center;
+      min-height: 400px;
+    }
+
+    .split-text .expandable-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--color-green-dark);
+      padding: 0;
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .split-text .expandable-toggle::after {
+      content: '+';
+      font-size: 18px;
+      font-family: var(--font-body);
+    }
+
+    .split-text .expandable-toggle.active::after {
+      content: '−';
+    }
+
+    .split-text .expandable-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .split-text .expandable-content.active {
+      max-height: 300px;
     }
 
     /* ========== PRICING SECTION ========== */
@@ -607,7 +666,6 @@
     .locations-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 12px;
     }
 
@@ -834,6 +892,26 @@
 
       .hero { min-height: 70vh; }
 
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
+      .split-section.reverse {
+        direction: ltr;
+      }
+
+      .split-text {
+        padding: 48px var(--page-padding);
+      }
+
+      .split-section.reverse .split-text {
+        padding: 48px var(--page-padding);
+      }
+
+      .split-image {
+        min-height: 300px;
+      }
+
       .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 32px;
@@ -858,9 +936,8 @@
         gap: 24px;
       }
 
-      .booking-benefits {
-        flex-direction: column;
-        align-items: center;
+      .split-image {
+        min-height: 250px;
       }
 
       .pricing-card {
@@ -926,13 +1003,30 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-bg" style="background-image: url('/images/hero-home.jpg');"></div>
+    <div class="hero-bg" style="background-image: url('/images/professional-garden-maintenance-south-london.webp');"></div>
     <div class="hero-content">
       <h1>Professional Gardening Services</h1>
       <p class="subtitle">Complete Garden Care From An Award Winning Gardener</p>
       <p class="description">Book your gardener online 24/7 with instant confirmation. No quotes needed. Professional 3 hour garden sessions from £125. Add extra hours on the day - no hassle.</p>
       <a href="/booking" class="btn btn-white">Book now</a>
     </div>
+  </section>
+
+  <!-- Book a Gardener (split section) -->
+  <section class="split-section">
+    <div class="split-text">
+      <h2>Book a Gardener in South East London Today</h2>
+      <ul class="booking-list">
+        <li>Instant online booking - no waiting for quotes</li>
+        <li>See real time availability</li>
+        <li>Fixed, transparent pricing from £125</li>
+        <li>Book in 60 seconds</li>
+      </ul>
+      <div>
+        <a href="/booking" class="btn btn-primary">Book now</a>
+      </div>
+    </div>
+    <div class="split-image" style="background-image: url('/images/seasonal-garden-care-flowers.webp');"></div>
   </section>
 
   <!-- Eco Friendly Services -->
@@ -999,37 +1093,21 @@
     </div>
   </section>
 
-  <!-- Booking Banner -->
-  <section class="booking-banner">
-    <div class="hero-bg" style="background-image: url('/images/hero-booking.jpg');"></div>
-    <div class="booking-banner-content container">
-      <h2>Book a Gardener in South East London Today</h2>
-      <ul class="booking-benefits">
-        <li>Instant online booking - no waiting for quotes</li>
-        <li>See real time availability</li>
-        <li>Fixed, transparent pricing from £125</li>
-        <li>Book in 60 seconds</li>
-      </ul>
-      <a href="/booking" class="btn btn-white">Book now</a>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section class="section">
-    <div class="container">
-      <div class="pricing-content">
-        <div class="pricing-card">
-          <h2>Book With Confidence - Pay For What You Need</h2>
-          <p class="pricing-subtitle">Start with 3 hours, extend on the day</p>
-          <p>Book your initial 3 hour slot for £125. Need more time? Your gardener can stay longer at just £40/hour. No pressure, no hidden costs - you decide on the day based on what actually needs doing.</p>
-          <p><strong>Why we work this way</strong></p>
-          <p>We believe in doing the job properly. Our 3 hour minimum means we can deliver real results, not rushed work. Most first time visit gardens need 3-4 hours for proper care.</p>
-          <div style="margin-top: 24px;">
-            <a href="/booking" class="btn btn-primary">Book now</a>
-          </div>
-        </div>
+  <!-- Pricing (split section) -->
+  <section class="split-section reverse">
+    <div class="split-text">
+      <h2>Book With Confidence - Pay For What You Need</h2>
+      <p style="font-size: 20px; color: var(--color-green-mid); margin-bottom: 20px;">Start with 3 hours, extend on the day</p>
+      <p>Book your initial 3 hour slot for £125. Need more time? Your gardener can stay longer at just £40/hour. No pressure, no hidden costs - you decide on the day based on what actually needs doing.</p>
+      <button class="expandable-toggle" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active')">Why we work this way</button>
+      <div class="expandable-content">
+        <p>We believe in doing the job properly. Our 3 hour minimum means we can deliver real results, not rushed work. Most first time visit gardens need 3-4 hours for proper care.</p>
+      </div>
+      <div style="margin-top: 24px;">
+        <a href="/booking" class="btn btn-primary">Book now</a>
       </div>
     </div>
+    <div class="split-image" style="background-image: url('/images/expert-care-flowering-plants.webp');"></div>
   </section>
 
   <!-- Why Choose Us -->
@@ -1087,15 +1165,12 @@
     </div>
   </section>
 
-  <!-- Locations -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Our Locations</h2>
-        <p>Serving SE London Boroughs of Southwark, Lewisham, Greenwich, Lambeth &amp; Bromley.</p>
-      </div>
-
-      <div class="locations-grid">
+  <!-- Locations (split section with image) -->
+  <section class="split-section">
+    <div class="split-text">
+      <h2>Our Locations</h2>
+      <p>Serving SE London Boroughs of Southwark, Lewisham, Greenwich, Lambeth &amp; Bromley.</p>
+      <div class="locations-grid" style="margin-top: 24px;">
         <a href="/locations/dulwich" class="location-pill">Dulwich</a>
         <a href="/locations/peckham-gardener" class="location-pill">Peckham</a>
         <a href="/locations/sydenham-gardener" class="location-pill">Sydenham</a>
@@ -1115,11 +1190,11 @@
         <a href="/locations/camberwell-gardener" class="location-pill">Camberwell</a>
         <a href="/locations/beckenham-gardener" class="location-pill">Beckenham</a>
       </div>
-
-      <div class="section-cta">
+      <div style="margin-top: 32px;">
         <a href="/booking" class="btn btn-primary">Book now</a>
       </div>
     </div>
+    <div class="split-image" style="background-image: url('/images/natural-propagation-native-plants.webp');"></div>
   </section>
 
   <!-- FAQ -->
