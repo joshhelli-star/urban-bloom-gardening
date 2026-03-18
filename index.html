@@ -115,7 +115,7 @@
     :root {
       --color-green-dark: #1a3c2a;
       --color-green-mid: #2d5a3f;
-      --color-green-btn: #5ba37c;
+      --color-green-btn: #53a57d;
       --color-cream: #f7f5f0;
       --color-white: #ffffff;
       --color-text: #1d231c;
@@ -127,7 +127,7 @@
       --font-body: 'Nunito Sans', sans-serif;
       --max-width: 1400px;
       --page-padding: 4vw;
-      --button-radius: 40px;
+      --button-radius: 300px;
     }
 
     html { scroll-behavior: smooth; }
@@ -174,7 +174,7 @@
     .btn { display: inline-block; padding: 16px 48px; border-radius: var(--button-radius); font-size: 15px; font-weight: 600; text-align: center; transition: all 0.25s; cursor: pointer; border: none; letter-spacing: 0.08em; text-transform: uppercase; }
     .btn-green { background: var(--color-green-btn); color: #fff; }
     .btn-green:hover { background: #4a9069; transform: translateY(-1px); }
-    .btn-dark { background: var(--color-green-dark); color: #fff; }
+    .btn-dark { background: #1d231c; color: #fff; }
     .btn-dark:hover { background: #0f2a1b; transform: translateY(-1px); }
     .btn-outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
     .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
@@ -199,17 +199,17 @@
     .service-card:hover { transform: translateY(-3px); }
     .service-card h3 { font-family: var(--font-heading); font-size: 22px; font-weight: 400; margin-bottom: 4px; color: var(--color-text); text-decoration: underline; text-underline-offset: 4px; }
     .service-card p { font-size: 14px; line-height: 1.7; color: var(--color-text-light); margin: 12px 0 16px; text-align: center; }
-    .service-card .card-link { font-size: 14px; color: var(--color-green-mid); font-weight: 500; text-decoration: underline; }
+    .service-card .card-link { font-size: 14px; color: var(--color-text); font-weight: 500; text-decoration: underline; }
     .section-cta { text-align: center; margin-top: 56px; }
 
     /* ===== PRICING (full-width dark bg) ===== */
-    .pricing-section { background: var(--color-green-dark); padding: 80px 0; color: #fff; }
+    .pricing-section { background: var(--color-green-dark); padding: 80px 0; color: #fff; text-align: center; }
     .pricing-section .container { max-width: 900px; }
-    .pricing-section h2 { font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 42px); font-weight: 400; color: #fff; margin-bottom: 12px; }
-    .pricing-section .pricing-subtitle { font-size: 22px; color: rgba(255,255,255,0.8); margin-bottom: 28px; font-weight: 400; }
-    .pricing-section .pricing-body { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
+    .pricing-section h2 { font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 42px); font-weight: 400; color: #fff; margin-bottom: 12px; text-align: center; }
+    .pricing-section .pricing-subtitle { font-size: 22px; color: rgba(255,255,255,0.8); margin-bottom: 28px; font-weight: 400; text-align: center; }
+    .pricing-section .pricing-body { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 28px; text-align: center; }
     .pricing-section .pricing-why-heading { font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; text-align: center; }
-    .pricing-section .pricing-why-body { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 36px; }
+    .pricing-section .pricing-why-body { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 36px; text-align: center; }
     .pricing-section .section-cta { text-align: center; }
 
     /* ===== WHY CHOOSE US (bg image section) ===== */
@@ -254,7 +254,7 @@
     .cta-items { display: flex; flex-direction: column; align-items: center; gap: 24px; margin-bottom: 48px; font-size: 22px; }
     .cta-items a { color: #fff; text-decoration: underline; }
     .cta-buttons { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
-    .cta-buttons .btn { min-width: 220px; padding: 16px 32px; font-size: 16px; border-radius: 8px; }
+    .cta-buttons .btn { min-width: 220px; padding: 16px 32px; font-size: 16px; border-radius: var(--button-radius); }
 
     /* ===== FOOTER ===== */
     .footer { background: var(--color-green-dark); color: #fff; padding: 100px 0 80px; }
@@ -527,7 +527,7 @@
         <a href="/locations/crystal-palace-gardener" class="location-pill">Crystal Palace</a>
       </div>
       <div style="margin-top: 36px;">
-        <a href="/booking" class="btn btn-dark" style="min-width: 280px; padding: 20px 64px; font-size: 16px;">Book Now</a>
+        <a href="/booking" class="btn btn-dark">Book Now</a>
       </div>
     </div>
   </section>
@@ -575,7 +575,7 @@
       </div>
       <div class="cta-buttons">
         <a href="/booking" class="btn btn-green">Book Now</a>
-        <a href="/contact" class="btn btn-outline-white" style="border-color: var(--color-green-btn); color: #fff;">Contact Us</a>
+        <a href="/contact" class="btn btn-green">Contact Us</a>
       </div>
     </div>
   </section>
