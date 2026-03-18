@@ -151,6 +151,8 @@
     .btn { display: inline-block; padding: 0 32px; height: 57px; line-height: 57px; border-radius: var(--button-radius); font-size: 16px; font-weight: 600; text-align: center; transition: all 0.25s; cursor: pointer; border: none; letter-spacing: 0.08em; text-transform: uppercase; }
     .btn-green { background: var(--color-green-btn); color: #fff; }
     .btn-green:hover { background: #4a9069; transform: translateY(-1px); }
+    .btn-dark { background: var(--color-text); color: #fff; }
+    .btn-dark:hover { background: #333; transform: translateY(-1px); }
     .btn-outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
     .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
 
@@ -233,7 +235,7 @@
     /* ===== PRICING COMPARISON (598px on live, cream bg) ===== */
     .pricing-section { padding: 60px 0; background: var(--color-cream); text-align: center; }
     .pricing-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: var(--color-text); margin-bottom: 32px; }
-    .pricing-table { width: 100%; max-width: 900px; margin: 0 auto 32px; border-collapse: collapse; text-align: left; }
+    .pricing-table { width: auto; max-width: 700px; margin: 0 auto 32px; border-collapse: collapse; text-align: left; }
     .pricing-table th { font-family: var(--font-heading); font-size: 16px; font-weight: 600; padding: 14px 16px; border-bottom: 2px solid var(--color-text); color: var(--color-text); }
     .pricing-table td { font-size: 16px; padding: 14px 16px; border-bottom: 1px solid var(--color-border); color: var(--color-text); }
     .pricing-table td:nth-child(4) { color: var(--color-green-btn); font-weight: 500; }
@@ -271,14 +273,14 @@
     .services-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .services-col { border: 1px solid var(--color-border-card); border-radius: 16px; padding: 24px 20px; background: rgba(255,255,255,0.55); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
     .services-col h3 { font-family: var(--font-heading); font-size: 36.7px; font-weight: 500; color: var(--color-text); text-align: center; margin-bottom: 16px; }
-    .services-col ul { list-style: none; text-align: center; margin-bottom: 16px; }
+    .services-col ul { list-style: disc; text-align: left; margin-bottom: 16px; padding-left: 24px; }
     .services-col li { font-size: 16px; line-height: 2; color: var(--color-text); }
     .services-col .see-all { display: block; text-align: center; font-size: 16px; color: var(--color-text); text-decoration: underline; margin-top: 8px; }
     .all-services-section .section-cta { text-align: center; margin-top: 32px; }
 
     /* ===== LOCATIONS (590px on live) ===== */
-    .locations-section { padding: 80px 0; background: var(--color-white); text-align: center; }
-    .locations-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: var(--color-text); margin-bottom: 8px; }
+    .locations-section { padding: 60px 0; background: var(--color-white); text-align: center; }
+    .locations-section h2 { font-family: var(--font-heading); font-size: 86.8px; font-weight: 500; color: var(--color-text); margin-bottom: 8px; line-height: 1; }
     .locations-section .locations-intro { font-family: var(--font-heading); font-size: 26.4px; font-weight: 500; color: #000; margin-bottom: 48px; }
     .locations-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
     .location-pill { display: block; padding: 10px 8px; border: 1px solid var(--color-border-card); border-radius: var(--button-radius); font-size: 15px; color: var(--color-text); text-align: center; transition: all 0.2s; }
@@ -286,13 +288,15 @@
     .locations-section .section-cta { margin-top: 48px; }
 
     /* ===== CTA SECTION (bg image) ===== */
-    .cta-section { position: relative; padding: 114px 0 85px; overflow: hidden; text-align: center; }
+    .cta-section { position: relative; padding: 100px 0 70px; overflow: hidden; text-align: center; }
     .cta-section .cta-bg { position: absolute; inset: 0; z-index: 0; }
     .cta-section .cta-bg img { width: 100%; height: 100%; object-fit: cover; }
     .cta-section .cta-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.37); }
     .cta-section .container { position: relative; z-index: 1; color: #fff; }
     .cta-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: #fff; margin-bottom: 28px; max-width: 1214px; margin-left: auto; margin-right: auto; }
-    .cta-items { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-bottom: 99px; font-size: 22px; }
+    .cta-items { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-bottom: 99px; }
+    .cta-items h4 { font-family: var(--font-heading); font-size: 26.4px; font-weight: 500; color: #fff; }
+    .cta-items h4:last-of-type { font-size: 32.6px; }
     .cta-items a { color: #fff; text-decoration: underline; }
     .cta-buttons { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
     .cta-buttons .btn { min-width: 220px; }
@@ -300,15 +304,15 @@
     /* ===== FOOTER ===== */
     .footer { background: var(--color-green-dark); color: #fff; padding: 57px 0 57px; min-height: 399px; }
     .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 48px; text-align: center; }
-    .footer-brand { text-align: left; }
-    .footer-brand h3 { font-family: var(--font-heading); font-size: 22px; font-weight: 400; margin-bottom: 16px; }
+    .footer-brand { text-align: start; }
+    .footer-brand h3 { font-family: var(--font-heading); font-size: 25.9px; font-weight: 500; margin-bottom: 16px; }
     .footer-brand p { font-size: 14px; line-height: 1.7; opacity: 0.8; margin-bottom: 8px; }
     .footer-brand a { opacity: 0.8; text-decoration: underline; }
     .footer-brand a:hover { opacity: 1; }
     .footer-social { display: flex; gap: 12px; margin-top: 16px; }
     .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; opacity: 0.8; transition: opacity 0.2s, background 0.2s; font-size: 14px; }
     .footer-social a:hover { opacity: 1; background: rgba(255,255,255,0.1); }
-    .footer-col h4 { font-family: var(--font-heading); font-size: 16px; font-weight: 400; margin-bottom: 16px; opacity: 0.9; }
+    .footer-col h4 { font-family: var(--font-heading); font-size: 26.4px; font-weight: 500; margin-bottom: 16px; }
     .footer-col ul { list-style: none; }
     .footer-col li { margin-bottom: 10px; }
     .footer-col a { font-size: 14px; opacity: 0.7; transition: opacity 0.2s; text-decoration: underline; }
@@ -397,7 +401,7 @@
   <!-- HERO (912px) -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="/images/garden-maintenance-service-south-east-london.webp" alt="Professional garden maintenance in South East London" loading="eager">
+      <img src="/images/professional-garden-maintenance-south-london.webp" alt="Professional garden maintenance in South East London" loading="eager">
     </div>
     <div class="hero-content">
       <h1>Professional Garden Maintenance</h1>
@@ -468,7 +472,7 @@
       </div>
 
       <div class="section-cta">
-        <a href="/booking" class="btn btn-green">Book Now</a>
+        <a href="/booking" class="btn btn-dark">Book Now</a>
       </div>
     </div>
   </section>
@@ -517,12 +521,12 @@
           <p>Clear, transparent garden care packages with no hidden costs. Only book what you need with extra hours available on the day. Based locally with quick response times and instant booking 24/7 with flexible open scheduling.</p>
         </div>
         <div class="feature-card">
-          <h3>Eco Friendly</h3>
-          <p>100% chemical free maintenance creating vital green corridors for local wildlife. We use organic methods, peat free compost, and bee loving plants to support biodiversity while keeping your garden thriving and beautiful year-round.</p>
-        </div>
-        <div class="feature-card">
           <h3>Attention To Detail</h3>
           <p>Meticulous care, from precise lawn edging to thoughtful plant care, ensuring your garden always looks professionally maintained. We deadhead regularly for extended flowering and keep borders crisp and weed free.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Eco Friendly</h3>
+          <p>100% chemical free maintenance creating vital green corridors for local wildlife. We use organic methods, peat free compost, and bee loving plants to support biodiversity while keeping your garden thriving and beautiful year-round.</p>
         </div>
         <div class="feature-card">
           <h3>Wildlife Champions</h3>
@@ -534,7 +538,7 @@
         </div>
       </div>
       <div class="section-cta">
-        <a href="/booking" class="btn btn-green">Book Now</a>
+        <a href="/booking" class="btn btn-dark">Book Now</a>
       </div>
     </div>
   </section>
@@ -559,7 +563,7 @@
       <p>Our team of experienced gardeners brings passion and expertise to every garden we maintain. With comprehensive horticultural knowledge and a commitment to sustainable practices, we deliver professional garden maintenance that exceeds expectations.</p>
       <p>From small urban gardens to larger suburban spaces, we tailor our gardening services to your specific needs. Whether you&rsquo;re looking for regular maintenance or seasonal support, our flexible approach ensures your garden receives exactly the care it needs to flourish.</p>
       <div class="section-cta">
-        <a href="/booking" class="btn btn-green">Book Now</a>
+        <a href="/booking" class="btn btn-dark">Book Now</a>
       </div>
     </div>
   </section>
@@ -713,7 +717,7 @@
         </div>
       </div>
       <div class="section-cta">
-        <a href="/booking" class="btn btn-green">Book Now</a>
+        <a href="/booking" class="btn btn-dark">Book Now</a>
       </div>
     </div>
   </section>
@@ -744,7 +748,7 @@
         <a href="/locations/beckenham-gardener" class="location-pill">Beckenham</a>
       </div>
       <div class="section-cta">
-        <a href="/booking" class="btn btn-green">Book Now</a>
+        <a href="/booking" class="btn btn-dark">Book Now</a>
       </div>
     </div>
   </section>
@@ -757,10 +761,10 @@
     <div class="container">
       <h2>Start Your Garden Transformation Today</h2>
       <div class="cta-items">
-        <div>&#9889; Instant Online Booking</div>
-        <div>&#127942; Award Winning Gardeners</div>
-        <div>&#128222; <a href="tel:07835212838">07835 212 838</a></div>
-        <div>&#9993;&#65039; <a href="mailto:hello@urbanbloomgardening.co.uk">hello@urbanbloomgardening.co.uk</a></div>
+        <h4>&#9889;&#65039; Instant Online Booking</h4>
+        <h4>&#127942; Award Winning Gardeners</h4>
+        <h4>&#128222; <a href="tel:07835212838">07835 212 838</a></h4>
+        <h4>&#128233;  <a href="mailto:hello@urbanbloomgardening.co.uk">hello@urbanbloomgardening.co.uk</a></h4>
       </div>
       <div class="cta-buttons">
         <a href="/booking" class="btn btn-green">Book Now</a>
