@@ -24,767 +24,177 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    /* ========== RESET & BASE ========== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --color-green-dark: #1a3c2a;
       --color-green-mid: #2d5a3f;
-      --color-green-light: #4a7c5c;
-      --color-green-pale: #e8f0eb;
-      --color-cream: #faf8f5;
+      --color-green-btn: #53a57d;
+      --color-cream: #FBF7F4;
       --color-white: #ffffff;
-      --color-text: #2a2a2a;
-      --color-text-light: #555555;
-      --color-text-muted: #777777;
+      --color-text: #1d231c;
+      --color-text-light: #1d231c;
+      --color-text-muted: #555555;
       --color-border: rgba(0, 0, 0, 0.12);
-      --color-border-card: hsla(0, 0%, 16%, 1);
-      --font-heading: Georgia, 'Times New Roman', serif;
-      --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --color-border-card: rgba(0, 0, 0, 0.25);
+      --font-heading: 'Manrope', sans-serif;
+      --font-body: 'Nunito Sans', sans-serif;
       --max-width: 1400px;
       --page-padding: 4vw;
-      --section-padding: 80px;
-      --card-radius: 20px;
-      --button-radius: 40px;
+      --button-radius: 300px;
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--color-text);
-      background: var(--color-white);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--page-padding); }
 
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--page-padding);
-    }
+    /* ===== ANNOUNCEMENT BAR ===== */
+    .announcement-bar { background: var(--color-green-dark); color: #fff; text-align: center; padding: 10px 20px; font-size: 14px; letter-spacing: 0.02em; }
+    .announcement-bar a { color: #fff; text-decoration: underline; }
 
-    /* ========== ANNOUNCEMENT BAR ========== */
-    .announcement-bar {
-      background: var(--color-green-dark);
-      color: var(--color-white);
-      text-align: center;
-      padding: 10px 20px;
-      font-size: 14px;
-      font-family: var(--font-body);
-      letter-spacing: 0.02em;
-    }
-    .announcement-bar a {
-      color: var(--color-white);
-      text-decoration: underline;
-    }
-
-    /* ========== HEADER / NAV ========== */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-border);
-      padding: 0 var(--page-padding);
-    }
-
-    .header-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--color-green-dark);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      white-space: nowrap;
-    }
-
-    .logo img {
-      height: 36px;
-      width: auto;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
+    /* ===== HEADER ===== */
+    .header { position: absolute; top: 44px; left: 0; right: 0; z-index: 1000; background: transparent; padding: 0 var(--page-padding); }
+    .header.scrolled { position: fixed; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); }
+    .header-inner { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { font-family: var(--font-heading); font-size: 20px; font-weight: 400; color: #fff; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links li { position: relative; }
-
-    .nav-links a {
-      font-size: 15px;
-      color: var(--color-text);
-      transition: color 0.2s;
-      padding: 8px 0;
-      display: block;
-    }
-
+    .nav-links a { font-size: 15px; color: #fff; transition: color 0.2s; padding: 8px 0; display: block; }
+    .header.scrolled .nav-links a { color: var(--color-text); }
+    .header.scrolled .logo { color: var(--color-green-dark); }
     .nav-links a:hover { color: var(--color-green-mid); }
-
-    /* Dropdown */
     .dropdown-trigger { cursor: pointer; }
-    .dropdown-trigger::after {
-      content: ' ▾';
-      font-size: 10px;
-      opacity: 0.5;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: -16px;
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 8px 0;
-      min-width: 220px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      z-index: 100;
-    }
-
-    .dropdown-menu a {
-      padding: 10px 20px;
-      font-size: 14px;
-      display: block;
-    }
-
-    .dropdown-menu a:hover {
-      background: var(--color-green-pale);
-    }
-
+    .dropdown-trigger::after { content: ' \25BE'; font-size: 10px; opacity: 0.5; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: -16px; background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 8px 0; min-width: 220px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); z-index: 100; }
+    .dropdown-menu a { padding: 10px 20px; font-size: 14px; display: block; color: var(--color-text) !important; }
+    .dropdown-menu a:hover { background: #e8f0eb; color: var(--color-green-mid) !important; }
     .nav-links li:hover .dropdown-menu { display: block; }
-
-    /* CTA Button in nav */
-    .nav-cta {
-      background: var(--color-green-dark);
-      color: var(--color-white) !important;
-      padding: 10px 24px !important;
-      border-radius: var(--button-radius);
-      font-size: 14px !important;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-
-    .nav-cta:hover {
-      background: var(--color-green-mid) !important;
-      color: var(--color-white) !important;
-    }
-
-    /* Mobile nav toggle */
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--color-text);
-      margin: 5px 0;
-      transition: 0.3s;
-    }
-
-    /* ========== HERO SECTION ========== */
-    .hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      z-index: 0;
-    }
-
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      color: var(--color-white);
-      padding: 60px var(--page-padding);
-      max-width: 800px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 400;
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-
-    .hero .subtitle {
-      font-size: clamp(18px, 2.5vw, 24px);
-      font-weight: 300;
-      margin-bottom: 24px;
-      opacity: 0.95;
-    }
-
-    .hero .description {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      opacity: 0.9;
-    }
-
-    /* ========== BUTTONS ========== */
-    .btn {
-      display: inline-block;
-      padding: 14px 36px;
-      border-radius: var(--button-radius);
-      font-size: 15px;
-      font-weight: 500;
-      text-align: center;
-      transition: all 0.25s;
-      cursor: pointer;
-      border: none;
-      letter-spacing: 0.02em;
-    }
-
-    .btn-primary {
-      background: var(--color-green-dark);
-      color: var(--color-white);
-    }
-
-    .btn-primary:hover {
-      background: var(--color-green-mid);
-      transform: translateY(-1px);
-    }
-
-    .btn-white {
-      background: var(--color-white);
-      color: var(--color-green-dark);
-    }
-
-    .btn-white:hover {
-      background: var(--color-green-pale);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--color-green-dark);
-      border: 1.5px solid var(--color-green-dark);
-    }
-
-    .btn-outline:hover {
-      background: var(--color-green-dark);
-      color: var(--color-white);
-    }
-
-    /* ========== SECTION STYLES ========== */
-    .section {
-      padding: var(--section-padding) 0;
-    }
-
-    .section-alt {
-      background: var(--color-cream);
-    }
-
-    .section-green {
-      background: var(--color-green-dark);
-      color: var(--color-white);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 400;
-      margin-bottom: 16px;
-      color: var(--color-green-dark);
-    }
-
-    .section-green .section-header h2 {
-      color: var(--color-white);
-    }
-
-    .section-header p {
-      font-size: 17px;
-      color: var(--color-text-light);
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    .section-green .section-header p {
-      color: rgba(255,255,255,0.85);
-    }
-
-    .section-cta {
-      text-align: center;
-      margin-top: 48px;
-    }
-
-    /* ========== SERVICE CARDS ========== */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
-    .service-card {
-      border: 1px solid var(--color-border-card);
-      border-radius: var(--card-radius);
-      padding: 32px;
-      background: var(--color-white);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-    }
-
-    .service-card h3 {
-      font-family: var(--font-heading);
-      font-size: 22px;
-      font-weight: 400;
-      margin-bottom: 12px;
-      color: var(--color-green-dark);
-    }
-
-    .service-card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--color-text-light);
-      margin-bottom: 16px;
-    }
-
-    .service-card .card-link {
-      font-size: 14px;
-      color: var(--color-green-mid);
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .service-card .card-link:hover {
-      text-decoration: underline;
-    }
-
-    .service-card .card-link::after {
-      content: ' →';
-    }
-
-    /* ========== BOOKING BANNER ========== */
-    .booking-banner {
-      position: relative;
-      padding: 80px 0;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .booking-banner .hero-bg::after {
-      background: rgba(0, 0, 0, 0.45);
-    }
-
-    .booking-banner-content {
-      position: relative;
-      z-index: 1;
-      color: var(--color-white);
-    }
-
-    .booking-banner h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(28px, 3.5vw, 40px);
-      font-weight: 400;
-      margin-bottom: 24px;
-    }
-
-    .booking-benefits {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 32px;
-      margin-bottom: 32px;
-      font-size: 16px;
-    }
-
-    .booking-benefits li::before {
-      content: '✓ ';
-      color: #8fdb8f;
-      font-weight: 700;
-    }
-
-    /* ========== PRICING SECTION ========== */
-    .pricing-section {
-      position: relative;
-      padding: 80px 0;
-      overflow: hidden;
-    }
-
-    .pricing-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .pricing-card {
-      background: rgba(255,255,255,0.97);
-      border-radius: var(--card-radius);
-      padding: 48px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .pricing-card h2 {
-      font-family: var(--font-heading);
-      font-size: 32px;
-      font-weight: 400;
-      color: var(--color-green-dark);
-      margin-bottom: 8px;
-    }
-
-    .pricing-card .pricing-subtitle {
-      font-size: 20px;
-      color: var(--color-green-mid);
-      margin-bottom: 20px;
-    }
-
-    .pricing-card p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--color-text-light);
-      margin-bottom: 20px;
-    }
-
-    .pricing-card strong {
-      color: var(--color-text);
-    }
-
-    /* ========== WHY CHOOSE US CARDS ========== */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 24px;
-    }
-
-    .feature-card {
-      border: 1px solid var(--color-border-card);
-      border-radius: var(--card-radius);
-      padding: 32px;
-      background: var(--color-white);
-    }
-
-    .feature-card h3 {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 12px;
-      color: var(--color-green-dark);
-    }
-
-    .feature-card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--color-text-light);
-    }
-
-    /* ========== LOCATIONS GRID ========== */
-    .locations-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .location-pill {
-      display: inline-block;
-      padding: 12px 28px;
-      border: 1px solid var(--color-border-card);
-      border-radius: var(--button-radius);
-      font-size: 15px;
-      color: var(--color-text);
-      transition: all 0.2s;
-    }
-
-    .location-pill:hover {
-      background: var(--color-green-dark);
-      color: var(--color-white);
-      border-color: var(--color-green-dark);
-    }
-
-    /* ========== TESTIMONIAL ========== */
-    .testimonial {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .testimonial blockquote {
-      font-family: var(--font-heading);
-      font-size: clamp(20px, 2.5vw, 26px);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.6;
-      color: var(--color-text);
-      margin-bottom: 20px;
-    }
-
-    .testimonial cite {
-      font-style: normal;
-      font-size: 15px;
-      color: var(--color-text-muted);
-    }
-
-    /* ========== FAQ ACCORDION ========== */
-    .faq-list {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--color-border);
-      padding: 0;
-    }
-
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      padding: 24px 40px 24px 0;
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--color-text);
-      cursor: pointer;
-      position: relative;
-      line-height: 1.4;
-    }
-
-    .faq-question::after {
-      content: '+';
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 24px;
-      font-family: var(--font-body);
-      font-weight: 300;
-      transition: transform 0.3s;
-    }
-
-    .faq-item.active .faq-question::after {
-      content: '−';
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 500px;
-      padding-bottom: 24px;
-    }
-
-    .faq-answer p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--color-text-light);
-    }
-
-    /* ========== FOOTER ========== */
-    .footer {
-      background: var(--color-green-dark);
-      color: var(--color-white);
-      padding: 64px 0 32px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-
-    .footer-brand h3 {
-      font-family: var(--font-heading);
-      font-size: 22px;
-      font-weight: 400;
-      margin-bottom: 16px;
-    }
-
-    .footer-brand p {
-      font-size: 14px;
-      line-height: 1.7;
-      opacity: 0.8;
-      margin-bottom: 8px;
-    }
-
-    .footer-brand a { opacity: 0.8; }
-    .footer-brand a:hover { opacity: 1; text-decoration: underline; }
-
-    .footer-social {
-      display: flex;
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .footer-social a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      opacity: 0.8;
-      transition: opacity 0.2s, background 0.2s;
-    }
-
-    .footer-social a:hover {
-      opacity: 1;
-      background: rgba(255,255,255,0.1);
-    }
-
-    .footer-col h4 {
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 400;
-      margin-bottom: 16px;
-      opacity: 0.9;
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col li {
-      margin-bottom: 10px;
-    }
-
-    .footer-col a {
-      font-size: 14px;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
+    .nav-cta { background: var(--color-green-btn); color: #fff !important; padding: 0 24px !important; height: 48px; line-height: 48px; border-radius: var(--button-radius); font-size: 14px !important; font-weight: 600; transition: background 0.2s; text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav-cta:hover { background: #4a9069 !important; color: #fff !important; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
+
+    /* ===== BUTTONS ===== */
+    .btn { display: inline-block; padding: 0 32px; height: 57px; line-height: 57px; border-radius: var(--button-radius); font-size: 16px; font-weight: 600; text-align: center; transition: all 0.25s; cursor: pointer; border: none; letter-spacing: 0.08em; text-transform: uppercase; }
+    .btn-green { background: var(--color-green-btn); color: #fff; }
+    .btn-green:hover { background: #4a9069; transform: translateY(-1px); }
+    .btn-dark { background: var(--color-green-dark); color: #fff; }
+    .btn-dark:hover { background: #0f2a1a; transform: translateY(-1px); }
+
+    /* ===== HERO ===== */
+    .hero { position: relative; height: 700px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.09); }
+    .hero-content { position: relative; z-index: 1; color: #fff; padding: 20px var(--page-padding); max-width: 100%; width: 100%; margin-top: 40px; }
+    .hero h1 { font-family: var(--font-heading); font-size: 100px; font-weight: 500; line-height: 105px; letter-spacing: -2px; margin-bottom: 14px; }
+    .hero h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; line-height: 52.46px; letter-spacing: -0.94px; margin-bottom: 24px; color: #fff; max-width: 880px; margin-left: auto; margin-right: auto; }
+    .hero .hero-text-lines { margin-bottom: 32px; }
+    .hero .hero-text-line { font-size: 22.9px; line-height: 1.5; opacity: 0.95; }
+
+    /* ===== INTRO / OUR PROMISE ===== */
+    .intro-section { padding: 72px 0 56px; background: var(--color-white); text-align: center; }
+    .intro-section .container { max-width: 900px; }
+    .intro-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: var(--color-text); margin-bottom: 28px; line-height: 1.11; }
+    .intro-section p { font-size: 22.9px; line-height: 1.5; color: #000; text-align: justify; margin-bottom: 16px; }
+
+    /* ===== FEATURES / WHAT MAKES US DIFFERENT (bg image) ===== */
+    .why-section { position: relative; padding: 57px 0 72px; overflow: hidden; }
+    .why-section .why-bg { position: absolute; inset: 0; z-index: 0; }
+    .why-section .why-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(1.25) saturate(0.8); }
+    .why-section .why-bg::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.62); }
+    .why-section .container { position: relative; z-index: 1; }
+    .why-section .section-header { text-align: center; margin-bottom: 48px; }
+    .why-section .section-header h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: var(--color-text); line-height: 1.12; max-width: 773px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .feature-card { border: 1px solid var(--color-border-card); border-radius: 16px; padding: 32px 20px; background: rgba(255,255,255,0.55); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); text-align: center; }
+    .feature-card h3 { font-family: var(--font-heading); font-size: 36.7px; font-weight: 500; margin-bottom: 12px; color: var(--color-text); line-height: 1.14; }
+    .feature-card p { font-size: 16px; line-height: 1.5; color: var(--color-text); text-align: center; }
+    .why-section .section-cta { text-align: center; margin-top: 48px; }
+
+    /* ===== AWARDS (cream bg) ===== */
+    .awards-section { padding: 60px 0; background: var(--color-cream); text-align: center; }
+    .awards-section .container { max-width: 900px; }
+    .awards-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: var(--color-text); margin-bottom: 28px; line-height: 1.11; }
+    .awards-section p { font-size: 22.9px; line-height: 1.5; color: #000; margin-bottom: 16px; }
+
+    /* ===== OUR PROMISE (dark bg) ===== */
+    .promise-section { padding: 56px 0 56px; background: var(--color-green-dark); text-align: center; }
+    .promise-section .container { max-width: 900px; }
+    .promise-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: #fff; margin-bottom: 28px; line-height: 1.11; }
+    .promise-section p { font-size: 22.9px; line-height: 1.5; color: rgba(255,255,255,0.9); text-align: justify; margin-bottom: 16px; }
+
+    /* ===== CTA SECTION (bg image) ===== */
+    .cta-section { position: relative; padding: 100px 0 70px; overflow: hidden; text-align: center; }
+    .cta-section .cta-bg { position: absolute; inset: 0; z-index: 0; }
+    .cta-section .cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .cta-section .cta-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.37); }
+    .cta-section .container { position: relative; z-index: 1; color: #fff; }
+    .cta-section h2 { font-family: var(--font-heading); font-size: 47.1px; font-weight: 500; color: #fff; margin-bottom: 28px; max-width: 1214px; margin-left: auto; margin-right: auto; }
+    .cta-items { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-bottom: 99px; }
+    .cta-items h4 { font-family: var(--font-heading); font-size: 26.4px; font-weight: 500; color: #fff; }
+    .cta-items h4:last-of-type { font-size: 32.6px; }
+    .cta-items a { color: #fff; text-decoration: underline; }
+    .cta-buttons { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .cta-buttons .btn { min-width: 220px; }
+
+    /* ===== LOCATIONS GRID ===== */
+    .locations-section { padding: 60px 0; background: var(--color-white); text-align: center; }
+    .locations-section h2 { font-family: var(--font-heading); font-size: 86.8px; font-weight: 500; color: var(--color-text); margin-bottom: 8px; line-height: 1; }
+    .locations-section .locations-intro { font-family: var(--font-heading); font-size: 26.4px; font-weight: 500; color: #000; margin-bottom: 48px; }
+    .locations-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+    .location-pill { display: block; padding: 10px 8px; border: 1px solid var(--color-border-card); border-radius: var(--button-radius); font-size: 15px; color: var(--color-text); text-align: center; transition: all 0.2s; }
+    .location-pill:hover { background: var(--color-green-dark); color: #fff; border-color: var(--color-green-dark); }
+    .locations-section .section-cta { margin-top: 48px; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--color-green-dark); color: #fff; padding: 57px 0 57px; min-height: 399px; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 48px; text-align: center; }
+    .footer-brand { text-align: start; }
+    .footer-brand h3 { font-family: var(--font-heading); font-size: 25.9px; font-weight: 500; margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; line-height: 1.7; opacity: 0.8; margin-bottom: 8px; }
+    .footer-brand a { opacity: 0.8; text-decoration: underline; }
+    .footer-brand a:hover { opacity: 1; }
+    .footer-social { display: flex; gap: 12px; margin-top: 16px; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; opacity: 0.8; transition: opacity 0.2s, background 0.2s; font-size: 14px; }
+    .footer-social a:hover { opacity: 1; background: rgba(255,255,255,0.1); }
+    .footer-col h4 { font-family: var(--font-heading); font-size: 26.4px; font-weight: 500; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-size: 14px; opacity: 0.7; transition: opacity 0.2s; text-decoration: underline; }
     .footer-col a:hover { opacity: 1; }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.15);
-      padding-top: 24px;
-      text-align: center;
-      font-size: 13px;
-      opacity: 0.6;
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .locations-grid { grid-template-columns: repeat(3, 1fr); }
     }
-
-    /* ========== MOBILE RESPONSIVE ========== */
     @media (max-width: 900px) {
       .nav-links { display: none; }
       .nav-toggle { display: block; }
-
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: var(--color-white);
-        padding: 20px var(--page-padding);
-        border-bottom: 1px solid var(--color-border);
-        gap: 4px;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      }
-
+      .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: #fff; padding: 20px var(--page-padding); border-bottom: 1px solid var(--color-border); gap: 4px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
       .nav-links.active li { width: 100%; }
       .nav-links.active a { padding: 12px 0; }
-      .nav-links.active .nav-cta {
-        text-align: center;
-        margin-top: 8px;
-      }
-
-      .dropdown-menu {
-        position: static;
-        box-shadow: none;
-        border: none;
-        padding-left: 16px;
-        display: none;
-      }
-
+      .nav-links.active .nav-cta { text-align: center; margin-top: 8px; }
+      .dropdown-menu { position: static; box-shadow: none; border: none; padding-left: 16px; display: none; }
       .nav-links.active .dropdown-menu { display: block; }
-
-      .hero { min-height: 70vh; }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      :root {
-        --section-padding: 56px;
-      }
+      .hero { min-height: 60vh; }
+      .hero h1 { font-size: 60px; line-height: 65px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .locations-grid { grid-template-columns: repeat(3, 1fr); }
     }
-
     @media (max-width: 600px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .booking-benefits {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .pricing-card {
-        padding: 32px 24px;
-      }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .locations-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .hero h1 { font-size: 44px; line-height: 48px; }
     }
   </style>
 </head>
@@ -798,14 +208,10 @@
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <a href="/" class="logo">
-        <span>Urban Bloom Gardening</span>
-      </a>
-
+      <a href="/" class="logo"><span>Urban Bloom Gardening</span></a>
       <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('active')">
         <span></span><span></span><span></span>
       </button>
-
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li>
@@ -838,104 +244,143 @@
         <li><a href="/blog">Blog</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/booking" class="nav-cta">Book now</a></li>
+        <li><a href="/booking" class="nav-cta">Book Now</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg" style="background-image: url('/images/hero-about.jpg');"></div>
+    <div class="hero-bg">
+      <img src="/images/wildflower-field-about-urban-bloom.webp" alt="About Urban Bloom Gardening - wildflower field" loading="eager">
+    </div>
     <div class="hero-content">
-      <h1>About Urban Bloom Gardening</h1>
-      <p class="subtitle">Your Award Winning Eco Gardener in South East London</p>
-      <p class="description">Book your gardener online 24/7 with instant confirmation. No quotes needed. Professional 3 hour garden sessions from £125. Add extra hours on the day - no hassle.</p>
-      <a href="/booking" class="btn btn-white">Book now</a>
-    </div>
-  </section>
-
-  <!-- Our Promise -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Our Promise</h2>
-        <p>Urban Bloom Gardening began with a simple belief: gardens should be beautiful, sustainable, and full of life. Founded in 2021, we've grown from a passion for ecological gardening into South East London's trusted choice for professional garden care that works with nature, not against it.</p>
+      <h1>About Us</h1>
+      <h2>Your Award Winning Eco Gardener in South East London</h2>
+      <div class="hero-text-lines">
+        <p class="hero-text-line">Book your gardener online 24/7 with instant confirmation.</p>
+        <p class="hero-text-line">Professional 3 hour garden sessions from &pound;125.</p>
+        <p class="hero-text-line">Add extra hours on the day - no hassle.</p>
       </div>
+      <a href="/booking" class="btn btn-green">Book Now</a>
     </div>
   </section>
 
-  <!-- What Makes Us Different -->
-  <section class="section section-alt">
+  <!-- OUR PROMISE (Intro) -->
+  <section class="intro-section">
+    <div class="container">
+      <h2>Our Promise</h2>
+      <p>Urban Bloom Gardening began with a simple belief: gardens should be beautiful, sustainable, and full of life. Founded in 2021, we&rsquo;ve grown from a passion for ecological gardening into South East London&rsquo;s trusted choice for professional garden care that works with nature, not against it.</p>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES US DIFFERENT -->
+  <section class="why-section">
+    <div class="why-bg">
+      <img src="/images/gardening-services-south-east-london.webp" alt="Professional gardening services across South East London" loading="lazy">
+    </div>
     <div class="container">
       <div class="section-header">
         <h2>What Makes Us Different</h2>
       </div>
-
       <div class="features-grid">
         <div class="feature-card">
           <h3>Ecological Expertise</h3>
           <p>Every garden we touch becomes part of the solution. Using organic methods, native plants, and wildlife friendly practices, we create gardens that support biodiversity while looking spectacular.</p>
         </div>
-
         <div class="feature-card">
           <h3>Results That Last</h3>
-          <p>We don't just maintain gardens, we improve them. Our approach builds soil health, encourages beneficial wildlife, and creates resilient ecosystems that need less water, fewer inputs, and deliver more flowers.</p>
+          <p>We don&rsquo;t just maintain gardens, we improve them. Our approach builds soil health, encourages beneficial wildlife, and creates resilient ecosystems that need less water, fewer inputs, and deliver more flowers.</p>
         </div>
-
         <div class="feature-card">
           <h3>Local Knowledge</h3>
-          <p>Living and working in South East London, we understand each area's unique challenges. From Dulwich's clay soil to Greenwich's riverside conditions, we know what works where.</p>
+          <p>Living and working in South East London, we understand each area&rsquo;s unique challenges. From Dulwich&rsquo;s clay soil to Greenwich&rsquo;s riverside conditions, we know what works where.</p>
         </div>
-
         <div class="feature-card">
           <h3>Our Approach</h3>
-          <p>No chemicals, no shortcuts, no damage to the environment. We use organic fertilisers, peat free composts, and sustainable practices throughout. Every cut, every planting decision, every design element considers its impact on the wider ecosystem. The result? Gardens that are healthier, more beautiful, and genuinely sustainable.</p>
+          <p>No chemicals, no shortcuts, no damage to the environment. We use organic fertilisers, peat free composts, and sustainable practices throughout. Every cut, every planting decision, every design element considers its impact on the wider ecosystem.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Awards & Recognition -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Awards &amp; Recognition</h2>
-        <p>Award winning gardener recognised for excellence in sustainable garden practices. Our commitment to ecological gardening has earned recognition from clients and industry alike.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Promise (bottom) -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Our Promise</h2>
-        <p>When you choose Urban Bloom, you're choosing a gardener who cares as much about your garden as you do. We promise honest pricing, reliable service, and results that exceed expectations. Your garden won't just look good, it will thrive naturally.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Areas -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Service Areas</h2>
-        <p>Proudly serving all South East London communities. We're your local gardener, never more than a short journey away, bringing professional care to gardens from urban courtyards to suburban estates.</p>
-      </div>
-
       <div class="section-cta">
-        <a href="/booking" class="btn btn-primary">Book now</a>
+        <a href="/booking" class="btn btn-green">Book Now</a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- AWARDS & RECOGNITION -->
+  <section class="awards-section">
+    <div class="container">
+      <h2>Awards &amp; Recognition</h2>
+      <p>Award winning gardener recognised for excellence in sustainable garden practices. Gold &amp; Silver medals from the Lambeth Horticultural Society at the Lambeth Country Fair 2025. Our commitment to ecological gardening has earned recognition from clients and industry alike.</p>
+    </div>
+  </section>
+
+  <!-- OUR PROMISE (Bottom) -->
+  <section class="promise-section">
+    <div class="container">
+      <h2>Our Promise</h2>
+      <p>When you choose Urban Bloom, you&rsquo;re choosing a gardener who cares as much about your garden as you do. We promise honest pricing, reliable service, and results that exceed expectations. Your garden won&rsquo;t just look good, it will thrive naturally.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <img src="/images/sustainable-gardening-south-east-london.webp" alt="Sustainable gardening across South East London" loading="lazy">
+    </div>
+    <div class="container">
+      <h2>Start Your Garden Transformation Today</h2>
+      <div class="cta-items">
+        <h4>&#9889;&#65039; Instant Online Booking</h4>
+        <h4>&#127942; Award Winning Gardeners</h4>
+        <h4>&#128222; <a href="tel:07835212838">07835 212 838</a></h4>
+        <h4>&#128233;  <a href="mailto:hello@urbanbloomgardening.co.uk">hello@urbanbloomgardening.co.uk</a></h4>
+      </div>
+      <div class="cta-buttons">
+        <a href="/booking" class="btn btn-green">Book Now</a>
+        <a href="/contact" class="btn btn-green">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="locations-section">
+    <div class="container">
+      <h2>Our Locations</h2>
+      <p class="locations-intro">Serving SE London Boroughs of Southwark, Lewisham, Greenwich, Lambeth &amp; Bromley.</p>
+      <div class="locations-grid">
+        <a href="/locations/dulwich" class="location-pill">Dulwich</a>
+        <a href="/locations/peckham-gardener" class="location-pill">Peckham</a>
+        <a href="/locations/sydenham-gardener" class="location-pill">Sydenham</a>
+        <a href="/locations/nunhead-gardener" class="location-pill">Nunhead</a>
+        <a href="/locations/brockley-gardener" class="location-pill">Brockley</a>
+        <a href="/locations/norwood-gardener" class="location-pill">Norwood</a>
+        <a href="/locations/bromley-gardener" class="location-pill">Bromley</a>
+        <a href="/locations/streatham-gardener" class="location-pill">Streatham</a>
+        <a href="/locations/greenwich-gardener" class="location-pill">Greenwich</a>
+        <a href="/locations/brixton-gardener" class="location-pill">Brixton</a>
+        <a href="/locations/catford-gardener" class="location-pill">Catford</a>
+        <a href="/locations/blackheath-gardener" class="location-pill">Blackheath</a>
+        <a href="/locations/herne-hill-gardener" class="location-pill">Herne Hill</a>
+        <a href="/locations/honor-oak-gardener" class="location-pill">Honor Oak</a>
+        <a href="/locations/forest-hill-gardener" class="location-pill">Forest Hill</a>
+        <a href="/locations/crystal-palace-gardener" class="location-pill">Crystal Palace</a>
+        <a href="/locations/camberwell-gardener" class="location-pill">Camberwell</a>
+        <a href="/locations/beckenham-gardener" class="location-pill">Beckenham</a>
+      </div>
+      <div class="section-cta">
+        <a href="/locations" class="btn btn-dark">All Locations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>Urban Bloom Gardening</h3>
-          <p><a href="https://wa.me/4407835212838">07835 212 838</a></p>
+          <p><a href="tel:07835212838">07835212838</a></p>
           <p><a href="mailto:hello@urbanbloomgardening.co.uk">hello@urbanbloomgardening.co.uk</a></p>
           <div class="footer-social">
             <a href="https://www.facebook.com/urbanbloomgardening" aria-label="Facebook" target="_blank" rel="noopener">
@@ -946,7 +391,6 @@
             </a>
           </div>
         </div>
-
         <div class="footer-col">
           <h4>Services</h4>
           <ul>
@@ -954,10 +398,9 @@
             <li><a href="/services/garden-clearance">Garden Clearance</a></li>
             <li><a href="/services/wildlife-garden">Wildlife Gardens</a></li>
             <li><a href="/services/planting-plans">Planting Design</a></li>
-            <li><a href="/services">All Services →</a></li>
+            <li><a href="/services">All Services &rarr;</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>Locations</h4>
           <ul>
@@ -965,25 +408,35 @@
             <li><a href="/locations/peckham-gardener">Peckham</a></li>
             <li><a href="/locations/brockley-gardener">Brockley</a></li>
             <li><a href="/locations/greenwich-gardener">Greenwich</a></li>
-            <li><a href="/locations">All Locations →</a></li>
+            <li><a href="/locations">All Locations &rarr;</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="/booking">Book Online</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li><a href="/terms">Terms &amp; Conditions</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <p>© 2025 Urban Bloom Gardening. All rights reserved.</p>
-      </div>
     </div>
   </footer>
+
+  <script>
+    // Header scroll behavior - transparent over hero, solid when scrolled
+    var header = document.querySelector('.header');
+    var hero = document.querySelector('.hero');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > hero.offsetHeight - 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 
 </body>
 </html>
